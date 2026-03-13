@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Road Map — Climate Change & Gaza</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#E8A800; --gold-dk:#C48800; --gold-lt:#FFF3CC;
+  --teal:#0D7A6A; --teal-dk:#085248; --teal-lt:#D4F0EA;
+  --ink:#141414; --ink2:#2A2A2A; --ink3:#444;
+  --slate:#5A6472; --ash:#8A929A; --fog:#C8CDD3;
+  --paper:#FAFAF8; --white:#FFFFFF;
+  --red:#C0392B; --red-lt:#FDECEA;
+  --green:#1A7A3A; --green-lt:#E8F5EC;
+  --blue:#1A5FA0; --blue-lt:#E8F0FA;
+  --amber:#D4780A; --amber-lt:#FEF3E2;
+  --r:8px; --r2:14px; --r3:20px;
+  --shadow:0 2px 12px rgba(0,0,0,.10);
+  --shadow2:0 6px 28px rgba(0,0,0,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#F0EDEA;font-family:'Barlow',sans-serif;font-size:13px;color:var(--ink);min-height:100vh}
+.page{width:1100px;margin:0 auto;padding:28px 28px 40px}
+
+/* ── HEADER ─────────────────────────────── */
+.hdr{background:var(--ink2);border-radius:var(--r2);padding:0;margin-bottom:16px;overflow:hidden;box-shadow:var(--shadow2)}
+.hdr-top{background:var(--ink);padding:10px 22px;display:flex;justify-content:space-between;align-items:center}
+.hdr-badge{background:var(--gold);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:3px}
+.hdr-meta{font-size:10.5px;color:var(--ash);display:flex;gap:16px;align-items:center}
+.hdr-meta span{display:flex;align-items:center;gap:5px}
+.hdr-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.hdr-body{padding:18px 22px 20px;display:flex;gap:20px;align-items:flex-start}
+.hdr-title-col{flex:1}
+.hdr-title-en{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--white);line-height:1.25;margin-bottom:8px}
+.hdr-title-en em{color:var(--gold);font-style:normal}
+.hdr-title-ar{font-size:14px;color:var(--fog);line-height:1.5;direction:rtl;text-align:right}
+.hdr-stats{display:flex;flex-direction:column;gap:8px;min-width:200px}
+.hdr-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:8px 14px;text-align:center}
+.hdr-stat .num{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:700;color:var(--gold);line-height:1}
+.hdr-stat .lbl{font-size:10px;color:var(--ash);margin-top:2px}
+.hdr-stats-row{display:flex;gap:8px}
+
+/* ── PROBLEM SECTION ─────────────────────── */
+.prob-section{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.prob-card{background:var(--white);border-radius:var(--r2);padding:0;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--fog)}
+.prob-card-hdr{background:var(--gold);padding:8px 14px;display:flex;align-items:center;gap:8px}
+.prob-card-hdr .icon{width:22px;height:22px;background:var(--ink);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--gold)}
+.prob-card-hdr .ttl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink)}
+.prob-card-body{padding:12px 14px}
+.sector-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+.chip{font-size:10.5px;padding:3px 9px;border-radius:20px;font-weight:500}
+.chip-water{background:#E8F0FA;color:#1A5FA0;border:1px solid #B0CDF0}
+.chip-agri{background:#E8F5EC;color:#1A7A3A;border:1px solid #A0D4B0}
+.chip-health{background:var(--red-lt);color:var(--red);border:1px solid #F0B0AA}
+.chip-gray{background:var(--fog);color:var(--slate);border:1px solid #CCC}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #F0EEE8}
+.stat-row:last-child{border-bottom:none}
+.stat-row .sk{font-size:11.5px;color:var(--slate)}
+.stat-row .sv{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--red)}
+.warn-list{list-style:none;padding:0}
+.warn-list li{font-size:11.5px;color:var(--ink3);padding:4px 0 4px 14px;position:relative;border-bottom:1px solid #F5F3F0}
+.warn-list li:last-child{border-bottom:none}
+.warn-list li::before{content:'▸';position:absolute;left:0;color:var(--red);font-size:10px;top:5px}
+.warn-list li strong{color:var(--red)}
+
+/* ── GOAL BAR ────────────────────────────── */
+.goal-bar{background:linear-gradient(135deg,var(--gold),var(--gold-dk));border-radius:var(--r2);padding:14px 22px;margin-bottom:16px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow)}
+.goal-label{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);white-space:nowrap;background:rgba(0,0,0,.12);padding:6px 12px;border-radius:6px}
+.goal-text{font-size:13px;font-weight:500;color:var(--ink2);line-height:1.5}
+
+/* ── BODY LAYOUT ─────────────────────────── */
+.body-wrap{display:flex;gap:12px}
+.phase-labels{display:flex;flex-direction:column;width:54px;flex-shrink:0;gap:3px}
+.phase-lbl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:.8px;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;border-radius:var(--r);padding:10px 4px}
+.pl-where{background:var(--gold);color:var(--ink)}
+.pl-want{background:var(--teal);color:var(--white)}
+.pl-how{background:var(--ink2);color:var(--gold)}
+.main-col{flex:1;min-width:0}
+
+/* ── OUTCOME BLOCK ───────────────────────── */
+.outcome-blk{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);margin-bottom:12px}
+.outcome-hdr{background:var(--ink);padding:11px 16px;display:flex;align-items:center;gap:12px}
+.outcome-num{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:800;color:var(--gold);line-height:1;min-width:32px}
+.outcome-text-col .outcome-tag{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.outcome-text-col .outcome-desc{font-size:12.5px;color:var(--fog);line-height:1.4;font-weight:400}
+.outputs-grid{background:var(--paper);padding:10px}
+.col-hdr{display:grid;grid-template-columns:200px 14px 1fr 14px 70px 14px 70px;gap:0;margin-bottom:6px;padding:0 4px}
+.col-hdr-txt{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ash)}
+
+/* ── OUTPUT ROW ──────────────────────────── */
+.output-row{display:grid;grid-template-columns:24px 200px 14px 1fr 14px 70px 14px 70px;gap:0;align-items:center;margin-bottom:5px;cursor:pointer;transition:opacity .15s}
+.output-row:hover{opacity:.92}
+.step-num{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--teal-dk);padding-right:4px}
+.out-box{background:var(--teal);color:var(--white);border-radius:var(--r);padding:9px 12px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;line-height:1.3;min-height:48px;display:flex;align-items:center;position:relative}
+.out-box .sub{display:block;font-family:'Barlow',sans-serif;font-size:10px;font-weight:400;color:rgba(255,255,255,.65);margin-top:2px}
+.arrow-cell{display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--fog)}
+.deliv-box{background:var(--teal-dk);color:var(--white);border-radius:var(--r);padding:7px 10px;font-size:11px;font-weight:600;line-height:1.3;min-height:48px;display:flex;align-items:center;justify-content:center;text-align:center}
+.deliv-box .sub{display:block;font-size:9.5px;font-weight:400;color:rgba(255,255,255,.65);margin-top:2px}
+.doc-box{border-radius:var(--r);padding:7px 8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;min-height:48px;display:flex;align-items:center;justify-content:center;text-align:center;border:1.5px solid}
+.doc-report{background:var(--green-lt);color:var(--green);border-color:var(--green)}
+.doc-map{background:var(--blue-lt);color:var(--blue);border-color:var(--blue)}
+.doc-data{background:var(--amber-lt);color:var(--amber);border-color:var(--amber)}
+.connector-down{height:8px;margin-left:34px;border-left:2px dashed var(--fog)}
+
+/* Outcome 2 teal variant */
+.out2 .out-box{background:var(--blue);color:var(--white)}
+.out2 .deliv-box{background:var(--blue-dk,#143D75);background:#143D75;color:var(--white)}
+
+/* ── DETAIL PANELS ───────────────────────── */
+.detail-panel{display:none;background:var(--white);border-radius:0 0 var(--r) var(--r);border:1.5px solid var(--teal);border-top:none;padding:12px 14px;margin-top:-5px;margin-bottom:5px;animation:fadeIn .2s ease}
+.detail-panel.open{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.dp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.dp-card{background:var(--paper);border-radius:var(--r);padding:10px 12px;border:1px solid #E8E5E0}
+.dp-card .dp-ttl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--teal-dk);margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.dp-card .dp-ttl .ico{width:16px;height:16px;border-radius:4px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0}
+.dp-list{list-style:none}
+.dp-list li{font-size:11px;color:var(--ink3);padding:3px 0 3px 10px;position:relative;border-bottom:1px solid #F0EDEA}
+.dp-list li:last-child{border-bottom:none}
+.dp-list li::before{content:'·';position:absolute;left:0;font-size:14px;color:var(--teal);line-height:1.2}
+.dp-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.dp-stat{background:var(--teal-lt);border-radius:6px;padding:6px 8px;text-align:center}
+.dp-stat .val{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--teal-dk);line-height:1}
+.dp-stat .lbl{font-size:9.5px;color:var(--slate);margin-top:1px}
+.crop-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.crop-tag{font-size:10.5px;padding:3px 8px;border-radius:4px;font-weight:500}
+.crop-hi{background:#FEE8E8;color:#A32020;border:1px solid #F5B8B8}
+.crop-med{background:#E8F5EC;color:#1A6030;border:1px solid #A8D8B8}
+.rcp-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.rcp-card{border-radius:6px;padding:7px 9px;border:1px solid}
+.rcp-26{background:#E8F5EC;border-color:#A0D4B0}
+.rcp-45{background:#E8F0FA;border-color:#A0C8F0}
+.rcp-60{background:#FEF3E2;border-color:#F0C878}
+.rcp-85{background:#FEE8E8;border-color:#F0A8A8}
+.rcp-card .rv{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700}
+.rcp-card .rt{font-size:10px;font-weight:400;margin-top:1px}
+
+/* ── RCP COMPARISON TABLE ────────────────── */
+.rcp-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:11.5px}
+.rcp-table th{background:var(--ink2);color:var(--white);padding:6px 10px;text-align:left;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
+.rcp-table td{padding:6px 10px;border-bottom:1px solid #F0EDEA;vertical-align:top}
+.rcp-table tr:nth-child(even) td{background:#F8F6F3}
+.badge-stable{background:#E8F5EC;color:#1A6030;padding:2px 7px;border-radius:3px;font-size:10px;font-weight:600}
+.badge-mod{background:#E8F0FA;color:#1A4A80;padding:2px 7px;border-radius:3px;font-size:10px;font-weight:600}
+.badge-unstable{background:#FEF3E2;color:#904A08;padding:2px 7px;border-radius:3px;font-size:10px;font-weight:600}
+.badge-critical{background:#FEE8E8;color:#902020;padding:2px 7px;border-radius:3px;font-size:10px;font-weight:600}
+
+/* ── 3-LEVEL RECOMMENDATIONS ─────────────── */
+.rec-levels{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:10px}
+.rec-level{border-radius:var(--r);overflow:hidden;border:1px solid}
+.rec-level.pol{border-color:#A0C8F0}
+.rec-level.tec{border-color:#A0D4B0}
+.rec-level.com{border-color:#F0B878}
+.rec-lhdr{padding:8px 12px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.rec-lhdr.pol{background:#E8F0FA;color:#1A4A80}
+.rec-lhdr.tec{background:#E8F5EC;color:#1A6030}
+.rec-lhdr.com{background:#FEF3E2;color:#904A08}
+.rec-body{padding:8px 12px;background:var(--white)}
+.rec-body li{font-size:11px;color:var(--ink3);padding:3px 0 3px 10px;position:relative;border-bottom:1px solid #F5F3F0}
+.rec-body li:last-child{border-bottom:none}
+.rec-body li::before{content:'→';position:absolute;left:0;color:var(--ash);font-size:10px}
+
+/* ── FOOTER ──────────────────────────────── */
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:2px solid var(--gold)}
+.footer-badges{display:flex;gap:10px;flex-wrap:wrap}
+.fbadge{display:flex;align-items:center;gap:5px;background:var(--white);border:1px solid var(--fog);border-radius:5px;padding:4px 10px;font-size:11px;font-weight:500;color:var(--teal-dk)}
+.fbadge .chk{width:16px;height:16px;background:var(--teal);border-radius:3px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:9px;flex-shrink:0}
+.footer-sig{font-size:10px;color:var(--ash);text-align:right;line-height:1.6}
+.footer-sig strong{color:var(--ink3)}
+
+/* Tooltip */
+.tooltip-wrap{position:relative;display:inline-block}
+.tt{position:absolute;bottom:calc(100%+6px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--white);font-size:10.5px;padding:6px 10px;border-radius:6px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s;z-index:100;box-shadow:var(--shadow2)}
+.tt::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--ink)}
+.tooltip-wrap:hover .tt{opacity:1}
+
+/* Highlight bar */
+.highlight-row{background:#FFFBE8 !important}
+.highlight-row .out-box{background:var(--gold-dk) !important}
+
+/* Expand indicator */
+.expand-ico{margin-left:auto;font-size:11px;color:rgba(255,255,255,.5);transition:transform .2s;flex-shrink:0}
+.output-row.expanded .expand-ico{transform:rotate(90deg)}
+
+/* Watermark ribbon */
+.ribbon{position:fixed;top:0;right:0;background:var(--teal);color:white;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 40px 4px 20px;transform:rotate(0);box-shadow:var(--shadow);border-radius:0 0 0 6px;display:flex;align-items:center;gap:5px;opacity:.8}
+
+/* Animate stat counts */
+@keyframes countUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.animated{animation:countUp .5s ease both}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ── HEADER ─────────────────────────── -->
+<div class="hdr">
+  <div class="hdr-top">
+    <div class="hdr-badge">Research Road Map — Master's Thesis</div>
+    <div class="hdr-meta">
+      <span><div class="dot"></div> Islamic University of Gaza</span>
+      <span><div class="dot"></div> Jan 2026</span>
+      <span><div class="dot"></div> MEDRC Fellowship</span>
+      <span><div class="dot"></div> Master of Infrastructure</span>
+    </div>
+  </div>
+  <div class="hdr-body">
+    <div class="hdr-title-col">
+      <div class="hdr-title-en"><em>Climate Change</em> and Its Effects on Water-Stressed Communities<br>in Gaza's Marginalized Area — Focusing on <em>Groundwater Supply Issue</em></div>
+      <div class="hdr-title-ar">التغير المناخي وتأثيراته على التجمعات السكانية التي تعاني من الإجهاد المائي في المناطق المهمشة في قطاع غزة بالتركيز على مشكلة إمدادات المياه الجوفية</div>
+      <div style="margin-top:12px;display:flex;gap:20px">
+        <div style="font-size:11.5px;color:var(--fog)">
+          <span style="color:var(--ash)">Researcher:</span>
+          <strong style="color:var(--white);margin-left:4px">Ahmad S. A. AbuAbdu</strong>
+        </div>
+        <div style="font-size:11.5px;color:var(--fog)">
+          <span style="color:var(--ash)">Supervisor:</span>
+          <strong style="color:var(--white);margin-left:4px">Prof. Dr. Husam Al-Najar</strong>
+        </div>
+      </div>
+    </div>
+    <div class="hdr-stats">
+      <div class="hdr-stats-row">
+        <div class="hdr-stat" style="flex:1">
+          <div class="num" data-target="270">0</div>
+          <div class="lbl">localities<br>surveyed</div>
+        </div>
+        <div class="hdr-stat" style="flex:1">
+          <div class="num" data-target="25">0</div>
+          <div class="lbl">municipalities<br>covered</div>
+        </div>
+      </div>
+      <div class="hdr-stats-row">
+        <div class="hdr-stat" style="flex:1">
+          <div class="num" data-target="12">0</div>
+          <div class="lbl">vulnerable<br>sectors</div>
+        </div>
+        <div class="hdr-stat" style="flex:1">
+          <div class="num" style="font-size:18px">2010–<br>2022</div>
+          <div class="lbl">climate data<br>period</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROBLEM STATEMENT ───────────────── -->
+<div class="prob-section">
+  <div class="prob-card">
+    <div class="prob-card-hdr">
+      <div class="icon">⚠</div>
+      <div class="ttl">Highly Vulnerable Sectors — Water Focus</div>
+    </div>
+    <div class="prob-card-body">
+      <div style="font-size:11px;color:var(--slate);margin-bottom:7px">12 sectors identified across Palestine/Gaza Strip. Water ranks #1:</div>
+      <div class="sector-chips">
+        <span class="chip chip-water">① Water</span>
+        <span class="chip chip-agri">② Agriculture</span>
+        <span class="chip chip-health">③ Health</span>
+        <span class="chip chip-gray">④ Food Security</span>
+        <span class="chip chip-gray">⑤ Coastal</span>
+        <span class="chip chip-gray">⑥ Energy</span>
+        <span class="chip chip-gray">⑦ Gender</span>
+        <span class="chip chip-gray">+5 more</span>
+      </div>
+      <div class="stat-row"><span class="sk">Poverty rate (Gaza)</span><span class="sv">39%</span></div>
+      <div class="stat-row"><span class="sk">Unemployment</span><span class="sv">41.5%</span></div>
+      <div class="stat-row"><span class="sk">Food insecurity</span><span class="sv">47% HHs</span></div>
+      <div class="stat-row"><span class="sk">Groundwater unfit for drinking</span><span class="sv">98%</span></div>
+    </div>
+  </div>
+  <div class="prob-card">
+    <div class="prob-card-hdr">
+      <div class="icon">💧</div>
+      <div class="ttl">Critical Groundwater Challenges</div>
+    </div>
+    <div class="prob-card-body">
+      <ul class="warn-list">
+        <li><strong>TDS exceeds 5,000 mg/L</strong> in most Gaza Strip locations — 10× WHO limit</li>
+        <li><strong>Nitrate levels exceed 200 mg/L</strong> in multiple localities</li>
+        <li><strong>Chloride exceeds 600 mg/L</strong> — severe salinity contamination</li>
+        <li>Aquifer depth projected to reach <strong>27.77 m below sea level by 2040</strong></li>
+        <li>Rainfall predicted to decrease <strong>5.2% every 20 years</strong></li>
+        <li>Seawater intrusion worsening due to over-pumping + sea level rise</li>
+        <li>Marginalized communities use <strong>agricultural wells</strong> for drinking</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ── GOAL BAR ─────────────────────────── -->
+<div class="goal-bar">
+  <div class="goal-label">Goal</div>
+  <div class="goal-text">To contribute to Improved Wellbeing and Resilience of Vulnerable Female and Male Community Members in the Water-Stressed Communities in Gaza's Marginalized Area</div>
+</div>
+
+<!-- ── BODY ────────────────────────────── -->
+<div class="body-wrap">
+  <div class="phase-labels">
+    <div class="phase-lbl pl-where" style="flex:5">Where Are We?</div>
+    <div class="phase-lbl pl-want" style="flex:2">Where Do We Want To Go?</div>
+    <div class="phase-lbl pl-how" style="flex:1">How?</div>
+  </div>
+  <div class="main-col">
+
+    <!-- ───── OUTCOME 1 ───── -->
+    <div class="outcome-blk">
+      <div class="outcome-hdr">
+        <div class="outcome-num">1</div>
+        <div class="outcome-text-col">
+          <div class="outcome-tag">Outcome 1 — Where are we?</div>
+          <div class="outcome-desc">Presenting relevant data towards identifying the relation between climate change & groundwater supply and its impact on the agricultural careers in Water-Stressed communities in Gaza's marginalized area</div>
+        </div>
+      </div>
+      <div class="outputs-grid">
+        <div class="col-hdr">
+          <span style="grid-column:2" class="col-hdr-txt">Output</span>
+          <span class="col-hdr-txt"></span>
+          <span class="col-hdr-txt">Deliverable</span>
+          <span class="col-hdr-txt"></span>
+          <span class="col-hdr-txt">Format</span>
+          <span class="col-hdr-txt"></span>
+          <span class="col-hdr-txt">Source</span>
+        </div>
+
+        <!-- 1.1 -->
+        <div class="output-row" onclick="toggle('d11',this)" id="r11">
+          <div class="step-num">1.1</div>
+          <div class="out-box">Identification: Highest Vulnerable Sectors <span class="sub">Gaza Strip · National Plan basis</span><span class="expand-ico">▶</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="deliv-box">2 out of 12 sectors<span class="sub">Water + Agriculture</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-report">Report</div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-data" style="font-size:9.5px">National Plan</div>
+        </div>
+        <div class="detail-panel" id="d11">
+          <div class="dp-grid">
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">⚑</span>Key Finding</div>
+              <ul class="dp-list">
+                <li>12 vulnerable sectors identified across Palestine</li>
+                <li>Water & Agriculture confirmed as most critical sectors</li>
+                <li>Both sectors have direct negative cascade on all others</li>
+                <li>Water sector issues: groundwater supply, quality, flood management</li>
+                <li>Agriculture: citrus, olive, vegetable production, irrigation cost</li>
+              </ul>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">📋</span>All 12 Sectors</div>
+              <div class="sector-chips">
+                <span class="chip chip-water">Water</span><span class="chip chip-agri">Agriculture</span>
+                <span class="chip chip-health">Health</span><span class="chip chip-gray">Food Security</span>
+                <span class="chip chip-gray">Coastal</span><span class="chip chip-gray">Energy</span>
+                <span class="chip chip-gray">Gender</span><span class="chip chip-gray">Industry</span>
+                <span class="chip chip-gray">Housing</span><span class="chip chip-gray">Transport</span>
+                <span class="chip chip-gray">Waste/Wastewater</span><span class="chip chip-gray">Urban</span>
+              </div>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">⚡</span>Gaza Context</div>
+              <ul class="dp-list">
+                <li>365 km² area — 2.3M population (end of 2022)</li>
+                <li>6,300 persons/km² — among world's most dense</li>
+                <li>5 governorates, 25 municipalities</li>
+                <li>Blockade since 2007 — severe impact on services</li>
+                <li>Gaza Strip: 41 km long, 6-12 km wide</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="connector-down"></div>
+
+        <!-- 1.2 -->
+        <div class="output-row" onclick="toggle('d12',this)" id="r12">
+          <div class="step-num">1.2</div>
+          <div class="out-box">Identification: Highest Vulnerable Localities <span class="sub">Municipal level · 5 marginalization aspects</span><span class="expand-ico">▶</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="deliv-box">117 out of 270 Localities<span class="sub">Above-avg marginalization</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-map">Map</div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-data" style="font-size:9.5px">CVMS Study</div>
+        </div>
+        <div class="detail-panel" id="d12">
+          <div class="dp-grid">
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">📊</span>Survey Scope</div>
+              <div class="dp-stat-grid">
+                <div class="dp-stat"><div class="val">25</div><div class="lbl">municipalities</div></div>
+                <div class="dp-stat"><div class="val">270</div><div class="lbl">localities surveyed</div></div>
+                <div class="dp-stat"><div class="val">117</div><div class="lbl">above-avg marginalization</div></div>
+                <div class="dp-stat"><div class="val">24</div><div class="lbl">high marginalization</div></div>
+              </div>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">📐</span>5 Marginalization Aspects</div>
+              <ul class="dp-list">
+                <li><strong>1.</strong> Safety Environment</li>
+                <li><strong>2.</strong> Sanitation Network coverage</li>
+                <li><strong>3.</strong> Waste Management services</li>
+                <li><strong>4.</strong> Physical Environment condition</li>
+                <li><strong>5.</strong> Public Services access</li>
+              </ul>
+              <div style="font-size:10.5px;color:var(--slate);margin-top:6px">Levels: Very High (VH) / High (H) / Medium (M) / Low (L)</div>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">🗺</span>High-Marginalization Municipalities</div>
+              <ul class="dp-list">
+                <li>Buraij — Al Tal Al Akhdar, Mqbola</li>
+                <li>Maghazi — Alsa'Aida Area</li>
+                <li>Wadi Al-Salqa — 9 sub-localities (H overall)</li>
+                <li>Fukhari — High marginalization</li>
+                <li>Khan Younis — High marginalization</li>
+                <li>Shuka — High marginalization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="connector-down"></div>
+
+        <!-- 1.3 -->
+        <div class="output-row highlight-row" onclick="toggle('d13',this)" id="r13">
+          <div class="step-num">1.3</div>
+          <div class="out-box" style="background:var(--gold-dk);color:var(--ink)">Identification: Most Vulnerable Locality <span class="sub" style="color:rgba(0,0,0,.55)">SPSS analysis · 13 vulnerability aspects</span><span class="expand-ico" style="color:rgba(0,0,0,.4)">▶</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="deliv-box" style="background:var(--gold);color:var(--ink)">Wadi Al-Salqa Village<span class="sub" style="color:rgba(0,0,0,.55)">#1 Most Vulnerable in Gaza</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-map">Map</div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-data" style="font-size:9.5px">SPSS / Field</div>
+        </div>
+        <div class="detail-panel" id="d13" style="border-color:var(--gold)">
+          <div class="dp-grid">
+            <div class="dp-card" style="border-color:var(--gold)">
+              <div class="dp-ttl" style="color:var(--gold-dk)"><span class="ico" style="background:var(--gold)">★</span>Why Wadi Al-Salqa?</div>
+              <ul class="dp-list">
+                <li>Highest composite vulnerability score in all of Gaza Strip</li>
+                <li>Border locality — designated risk zone area</li>
+                <li>~11,000 residents across 9 sub-localities</li>
+                <li>Eastern-central Gaza, severely isolated</li>
+                <li>Extreme deprivation of basic services</li>
+                <li>Almost entirely dependent on agriculture</li>
+              </ul>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">📍</span>Geographic Info</div>
+              <ul class="dp-list">
+                <li>Location: Central-eastern Gaza Strip</li>
+                <li>Municipality code area: M28–M36</li>
+                <li>Sub-localities: Al Sharqia, Abo Mghiesib, Al Quds St., and 6 more</li>
+                <li>Coordinates confirmed via GPS survey</li>
+                <li>Wadi Al-Salqa strategic development plan 2023–2026</li>
+                <li>2 active CBOs: Rural Women Assoc. + Injured Child Assoc.</li>
+              </ul>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">📈</span>13 Vulnerability Aspects (SPSS)</div>
+              <ul class="dp-list">
+                <li>WASH indicators (12 sub-indicators)</li>
+                <li>Transportation access</li>
+                <li>Education access</li>
+                <li>Health services</li>
+                <li>Age distribution (high % children)</li>
+                <li>Housing status (poor quality)</li>
+                <li>Diarrhea prevalence in children</li>
+                <li>All 13 aspects scored HIGH for Wadi Al-Salqa</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="connector-down"></div>
+
+        <!-- 1.4 -->
+        <div class="output-row" onclick="toggle('d14',this)" id="r14">
+          <div class="step-num">1.4</div>
+          <div class="out-box">Assessment of Climate Sensitivities <span class="sub">MERRA-2 / NASA model · 2010–2022</span><span class="expand-ico">▶</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="deliv-box">7 of 10 crops: HIGH risk<span class="sub">6 climate parameters</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-data">Historical Data</div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-data" style="font-size:9.5px">NASA / GIS</div>
+        </div>
+        <div class="detail-panel" id="d14">
+          <div class="dp-grid">
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">🌡</span>6 Climate Parameters (MERRA-2)</div>
+              <ul class="dp-list">
+                <li><strong>Temperature:</strong> Max ~29.5°C, trending upward</li>
+                <li><strong>Precipitation:</strong> Below optimal 500–800mm/yr; high-intensity short bursts</li>
+                <li><strong>Specific Humidity:</strong> Variability affecting fungal/pest risk</li>
+                <li><strong>Surface Soil Wetness:</strong> Optimal 0.3–0.5; deficit in 2010, 2018</li>
+                <li><strong>Earth Skin Temp:</strong> Rising trend — root zone damage</li>
+                <li><strong>Wind Speed:</strong> Variability → increased evapotranspiration</li>
+              </ul>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">🌿</span>Crop Vulnerability Assessment</div>
+              <div style="font-size:10.5px;color:var(--slate);margin-bottom:6px;font-weight:500">HIGH vulnerability (urgent action needed):</div>
+              <div class="crop-grid">
+                <span class="crop-tag crop-hi">🫒 Olive</span>
+                <span class="crop-tag crop-hi">🍅 Tomato</span>
+                <span class="crop-tag crop-hi">🥔 Potato</span>
+                <span class="crop-tag crop-hi">🌳 Almond</span>
+                <span class="crop-tag crop-hi">🌾 Wheat</span>
+                <span class="crop-tag crop-hi">🌿 Mint</span>
+                <span class="crop-tag crop-hi">🌿 Parsley</span>
+              </div>
+              <div style="font-size:10.5px;color:var(--slate);margin:6px 0 4px;font-weight:500">Moderate vulnerability:</div>
+              <div class="crop-grid">
+                <span class="crop-tag crop-med">Tomato (B)</span>
+                <span class="crop-tag crop-med">Cucumber</span>
+                <span class="crop-tag crop-med">Beans</span>
+              </div>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">📉</span>Key Climate Findings</div>
+              <ul class="dp-list">
+                <li>Total rainfall slightly increased but with extreme intensity & less duration</li>
+                <li>Example: 30mm fell in 15 minutes — crops destroyed, no groundwater recharge</li>
+                <li>Favorable years: 2011, 2021 (higher precipitation, better soil wetness)</li>
+                <li>Drought years: 2010, 2018 (soil wetness deficit, irrigation essential)</li>
+                <li>Earth skin temperature rising — direct root zone stress</li>
+                <li>TDS recorded alongside meteorological parameters as water quality proxy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="connector-down"></div>
+
+        <!-- 1.5 -->
+        <div class="output-row" onclick="toggle('d15',this)" id="r15">
+          <div class="step-num">1.5</div>
+          <div class="out-box">Assessment of Groundwater Supply & Agriculture <span class="sub">Access · Quantity · Quality analysis</span><span class="expand-ico">▶</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="deliv-box">Quantitative Data<span class="sub">TDS · Nitrate · Chloride</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-data">Historical Data</div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-data" style="font-size:9.5px">Field / Lab</div>
+        </div>
+        <div class="detail-panel" id="d15">
+          <div class="dp-grid">
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">⚗</span>Water Quality — Critical Numbers</div>
+              <div class="dp-stat-grid">
+                <div class="dp-stat" style="background:#FEE8E8"><div class="val" style="color:#A32020;font-size:16px">&gt;5,000</div><div class="lbl">TDS mg/L<br>(WHO limit: 500)</div></div>
+                <div class="dp-stat" style="background:#FEE8E8"><div class="val" style="color:#A32020;font-size:16px">&gt;200</div><div class="lbl">Nitrate mg/L<br>(WHO limit: 50)</div></div>
+                <div class="dp-stat" style="background:#FEF3E2"><div class="val" style="color:#904A08;font-size:16px">&gt;600</div><div class="lbl">Chloride mg/L<br>(WHO limit: 250)</div></div>
+                <div class="dp-stat" style="background:#FEE8E8"><div class="val" style="color:#A32020;font-size:16px">98%</div><div class="lbl">Groundwater<br>unfit for drinking</div></div>
+              </div>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">📊</span>Groundwater Table 4.16 Findings</div>
+              <ul class="dp-list">
+                <li>Wadi Al-Salqa: worst groundwater quality metrics in Gaza</li>
+                <li>HHs forced to purchase water from vendors at high cost</li>
+                <li>Agricultural wells used for drinking when supply interrupted</li>
+                <li>Infectious diseases directly linked to contaminated water</li>
+                <li>No piped water network in most sub-localities</li>
+                <li>Storage capacity severely limited at household level</li>
+              </ul>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">🌊</span>Aquifer Status</div>
+              <ul class="dp-list">
+                <li>Gaza coastal aquifer: primary freshwater source</li>
+                <li>Over-pumping + sea level rise → seawater intrusion</li>
+                <li>Projected depth: 27.77m below sea level by 2040</li>
+                <li>Recharge rates declining due to decreased rainfall</li>
+                <li>Intense short rainfalls cannot recharge effectively</li>
+                <li>Agriculture: high TDS water → soil salinization risk</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="connector-down"></div>
+
+        <!-- 1.6 -->
+        <div class="output-row" onclick="toggle('d16',this)" id="r16">
+          <div class="step-num">1.6</div>
+          <div class="out-box">Assessment of Adaptive Capacities — Agriculture <span class="sub">Facts & coping mechanisms (+/-)</span><span class="expand-ico">▶</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="deliv-box">Coping Mechanisms<span class="sub">Positive & Negative</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-report">Report</div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-data" style="font-size:9.5px">Table 4.16</div>
+        </div>
+        <div class="detail-panel" id="d16">
+          <div class="dp-grid">
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">✓</span>Positive Adaptive Capacities</div>
+              <ul class="dp-list">
+                <li>Farmers possess traditional knowledge of local crops</li>
+                <li>Some households practice rainwater collection</li>
+                <li>Community solidarity networks exist (CBOs active)</li>
+                <li>Presence of Rural Women Association (technical training)</li>
+                <li>Local market demand for fresh produce maintains incentive</li>
+                <li>MEDRC & NGO engagement provides technical support</li>
+              </ul>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">✗</span>Negative Coping Mechanisms</div>
+              <ul class="dp-list">
+                <li>Over-reliance on agricultural wells for irrigation & drinking</li>
+                <li>Uncontrolled groundwater extraction accelerating depletion</li>
+                <li>Limited or no access to drought-resistant seed varieties</li>
+                <li>No modern irrigation systems (flood irrigation dominant)</li>
+                <li>Absence of water monitoring or governance structures</li>
+                <li>Limited financial capacity to invest in adaptation measures</li>
+              </ul>
+            </div>
+            <div class="dp-card">
+              <div class="dp-ttl"><span class="ico">📌</span>Institutional Actors</div>
+              <ul class="dp-list">
+                <li>Palestinian Water Authority (PWA)</li>
+                <li>Coastal Municipalities Water Utility (CMWU)</li>
+                <li>Environment Quality Authority (EQA)</li>
+                <li>Ministry of Local Government (MoLG)</li>
+                <li>Islamic Relief Palestine (past CVMS contributor)</li>
+                <li>MEDRC — Water Research Fellowship funder</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="connector-down"></div>
+
+        <!-- 1.7 -->
+        <div class="output-row" onclick="toggle('d17',this)" id="r17">
+          <div class="step-num">1.7</div>
+          <div class="out-box">Assess Potential Adaptation Options <span class="sub">GFDL-ESM2G · RCP 2.6 / 4.5 / 6.0 / 8.5</span><span class="expand-ico">▶</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="deliv-box">(+) Adaptation Actions<span class="sub">Per RCP scenario</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-report">Report</div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-data" style="font-size:9.5px">GFDL Model</div>
+        </div>
+        <div class="detail-panel" id="d17">
+          <div style="margin-bottom:8px">
+            <div style="font-size:11px;color:var(--slate);margin-bottom:8px">RCP Scenario comparison — Agriculture & Groundwater Impact (2010 → 2050)</div>
+            <table class="rcp-table">
+              <tr><th>Scenario</th><th>Description</th><th>Rainfall (2050)</th><th>Max Temp (2050)</th><th>Agriculture</th><th>Groundwater</th></tr>
+              <tr><td><strong>RCP 2.6</strong></td><td>Strong global GHG commitment</td><td>322 mm</td><td>30.3°C</td><td><span class="badge-stable">Stable</span></td><td><span class="badge-stable">Stable</span></td></tr>
+              <tr><td><strong>RCP 4.5</strong></td><td>Moderate commitment</td><td>303 mm</td><td>31.5°C</td><td><span class="badge-mod">Moderate</span></td><td><span class="badge-mod">Moderate</span></td></tr>
+              <tr><td><strong>RCP 6.0</strong></td><td>Limited commitment</td><td>341 mm</td><td>33.0°C</td><td><span class="badge-unstable">Unstable</span></td><td><span class="badge-unstable">Unstable</span></td></tr>
+              <tr><td><strong>RCP 8.5</strong></td><td>No commitment (worst case)</td><td>369 mm</td><td>34.0°C</td><td><span class="badge-critical">Critical</span></td><td><span class="badge-critical">Critical</span></td></tr>
+            </table>
+          </div>
+          <div class="rcp-grid">
+            <div class="rcp-card rcp-26">
+              <div class="rv" style="color:#1A6030">RCP 2.6 — Conserve Water Resources</div>
+              <ul class="dp-list" style="margin-top:5px">
+                <li>Rainwater harvesting systems (winter season)</li>
+                <li>Drip irrigation to maximize water efficiency</li>
+                <li>Drought-resistant farming promotion</li>
+                <li>Improved drainage to handle heavy rainfall</li>
+              </ul>
+            </div>
+            <div class="rcp-card rcp-45">
+              <div class="rv" style="color:#1A4A80">RCP 4.5 — Sustainable Management</div>
+              <ul class="dp-list" style="margin-top:5px">
+                <li>Sustainable groundwater monitoring & regulation</li>
+                <li>Efficient irrigation to offset rainfall decline</li>
+                <li>Farmer subsidies & awareness programs</li>
+                <li>Afforestation to improve soil water retention</li>
+              </ul>
+            </div>
+            <div class="rcp-card rcp-60">
+              <div class="rv" style="color:#904A08">RCP 6.0 — Climate-Adaptive Crops</div>
+              <ul class="dp-list" style="margin-top:5px">
+                <li>R&D for climate-adaptive crop varieties</li>
+                <li>Green infrastructure (green roofs, rain gardens)</li>
+                <li>Comprehensive water management practices</li>
+                <li>Smart irrigation adoption</li>
+              </ul>
+            </div>
+            <div class="rcp-card rcp-85">
+              <div class="rv" style="color:#902020">RCP 8.5 — Emergency Resilience</div>
+              <ul class="dp-list" style="margin-top:5px">
+                <li>Double-cropping of short-season crops</li>
+                <li>Highly efficient precision irrigation</li>
+                <li>Heat-tolerant varieties: lentils, chickpeas, pulses</li>
+                <li>Agricultural DRR/M plans for municipalities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end outputs-grid -->
+    </div><!-- end outcome 1 -->
+
+    <!-- ───── OUTCOME 2 ───── -->
+    <div class="outcome-blk" style="margin-top:12px">
+      <div class="outcome-hdr" style="background:#143D75">
+        <div class="outcome-num" style="color:#7BADD8">2</div>
+        <div class="outcome-text-col">
+          <div class="outcome-tag" style="color:#7BADD8">Outcome 2 — How do we get there?</div>
+          <div class="outcome-desc">Contributing to enhancing the efficiency of the targeting strategies and effectiveness of environmental interventions of environmental actors</div>
+        </div>
+      </div>
+      <div class="outputs-grid">
+        <div class="output-row out2" onclick="toggle('d21',this)" id="r21">
+          <div class="step-num" style="color:#1A4A80">2.1</div>
+          <div class="out-box" style="background:#1A5FA0">Decide Which Options to Implement <span class="sub">3 intervention levels + 4 RCP scenarios</span><span class="expand-ico">▶</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="deliv-box" style="background:#143D75">Proposed Interventions<span class="sub">Tailored per scenario</span></div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-report">Report</div>
+          <div class="arrow-cell">▶</div>
+          <div class="doc-box doc-data" style="font-size:9.5px">Ch. 5</div>
+        </div>
+        <div class="detail-panel" id="d21" style="border-color:#1A5FA0">
+          <div class="rec-levels">
+            <div class="rec-level pol">
+              <div class="rec-lhdr pol">🏛 Policy Level — Capacity Building</div>
+              <ul class="rec-body dp-list">
+                <li>Climate-resilient crop policies (olives, wheat, mint)</li>
+                <li>Financial support to farmers for climate-smart practices</li>
+                <li>Improved water policy & intervention programs</li>
+                <li>Diversified cropping systems promotion</li>
+                <li>Community participation in policymaking</li>
+                <li>Sustainability concept in vulnerability sectors</li>
+              </ul>
+            </div>
+            <div class="rec-level tec">
+              <div class="rec-lhdr tec">🔧 Technical Level — Fill Knowledge Gaps</div>
+              <ul class="rec-body dp-list">
+                <li>Capacity building: training programs & workshops</li>
+                <li>Technical assistance for climate-resilient varieties</li>
+                <li>R&D for olives, tomatoes, potatoes, almond, wheat</li>
+                <li>Demonstration farms for best practices</li>
+                <li>Drip irrigation + rainwater harvesting + soil sensors</li>
+                <li>GIS-based climate monitoring integration</li>
+              </ul>
+            </div>
+            <div class="rec-level com">
+              <div class="rec-lhdr com">👥 Community / HH Level — Increase Resilience</div>
+              <ul class="rec-body dp-list">
+                <li>Local water management committees formation</li>
+                <li>Train farmers on water conservation mechanisms</li>
+                <li>Community awareness on climate change effects</li>
+                <li>Workshops on adaptation measures</li>
+                <li>Community gardens + sustainable agriculture projects</li>
+                <li>Drought-resistant seeds provision to households</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end main-col -->
+</div><!-- end body-wrap -->
+
+<!-- ── FOOTER ─────────────────────────── -->
+<div class="footer">
+  <div class="footer-badges">
+    <div class="fbadge"><div class="chk">✓</div> Research Methodology Matrix</div>
+    <div class="fbadge"><div class="chk">✓</div> Scope & Logical Framework</div>
+    <div class="fbadge"><div class="chk">✓</div> Statement of Problem</div>
+    <div class="fbadge"><div class="chk">✓</div> Mixed Methods (Qual + Quant)</div>
+    <div class="fbadge"><div class="chk">✓</div> SPSS + MERRA-2 + GIS</div>
+    <div class="fbadge"><div class="chk">✓</div> GFDL-ESM2G Climate Model</div>
+  </div>
+  <div class="footer-sig">
+    <strong>Ahmad S. A. AbuAbdu</strong> — Researcher<br>
+    Supervised by: <strong>Prof. Dr. Husam Al-Najar</strong><br>
+    Funded by: <strong>MEDRC Water Research Fellowship</strong><br>
+    Islamic University of Gaza · Master of Infrastructure · January 2026
+  </div>
+</div>
+
+</div><!-- end page -->
+
+<script>
+function toggle(id, row) {
+  const panel = document.getElementById(id);
+  const isOpen = panel.classList.contains('open');
+  document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('open'));
+  document.querySelectorAll('.output-row').forEach(r => r.classList.remove('expanded'));
+  if (!isOpen) {
+    panel.classList.add('open');
+    row.classList.add('expanded');
+    panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+}
+
+// Animate stats counter
+function animateCount(el) {
+  const target = parseInt(el.getAttribute('data-target'));
+  if (!target) return;
+  const dur = 800, step = 16;
+  const inc = target / (dur / step);
+  let cur = 0;
+  const timer = setInterval(() => {
+    cur = Math.min(cur + inc, target);
+    el.textContent = Math.round(cur);
+    if (cur >= target) clearInterval(timer);
+  }, step);
+}
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('[data-target]').forEach(el => {
+      el.classList.add('animated');
+      animateCount(el);
+    });
+  }, 300);
+});
+
+// Auto-open first panel
+setTimeout(() => {
+  const firstRow = document.getElementById('r11');
+  if (firstRow) toggle('d11', firstRow);
+}, 700);
+</script>
+</body>
+</html>
